@@ -4,6 +4,9 @@ dotenv.config();
 import cors from "cors";
 import connectDB from "./config/db.js";
 
+import authRoute from "./routes/auth.js";
+import userRoute from "./routes/user.js";
+
 
 const app = express();
 connectDB();
@@ -14,9 +17,8 @@ app.use(cors());
 
 
 
-app.use("/", (req, res)=>{
-    console.log("From Nodejs Server.")
-});
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 
 
 
